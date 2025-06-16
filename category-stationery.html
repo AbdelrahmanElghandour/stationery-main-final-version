@@ -1,0 +1,124 @@
+<script type="text/javascript">
+    function toggleMenu() {
+    const navLinks = document.querySelector('.nav-links');
+    navLinks.classList.toggle('active');
+  }
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stationery Haven - Stationery</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Navigation Bar -->
+<nav class="navbar">
+  <div class="logo">
+    <h1>Stationery Haven</h1>
+  </div>
+  <div class="nav-container">
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+    <ul class="nav-links">
+      <li><a href="index.html" class="${window.location.pathname.includes('index.html') ? 'active' : ''}">Home</a></li>
+      <li><a href="products.html" class="${window.location.pathname.includes('products.html') ? 'active' : ''}">Products</a></li>
+      <li><a href="offers.html" class="${window.location.pathname.includes('offers.html') ? 'active' : ''}">Offers</a></li>
+      <li><a href="cart.html" class="${window.location.pathname.includes('cart.html') ? 'active' : ''}">Cart</a></li>
+      <li><a href="signup.html" class="${window.location.pathname.includes('signup.html') ? 'active' : ''}">Sign Up</a></li>
+      <li><a href="login.html" class="${window.location.pathname.includes('login.html') ? 'active' : ''}">Login</a></li>
+    </ul>
+    </div>
+    <div class="search-bar">
+      <input type="text" id="search-input" placeholder="Search products...">
+      <button id="search-button">🔍</button>
+    </div>
+    <div class="cart-icon">
+      <a href="cart.html">🛒 <span id="cart-count">0</span></a>
+    </div>
+  </div>
+</nav>
+
+  <!-- Main Content with Sidebar and Products -->
+  <div class="main-content">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h3>Categories</h3>
+      <ul>
+        <li><a href="category-pens.html">Pens</a></li>
+        <li><a href="category-notebooks.html">Notebooks</a></li>
+        <li><a href="category-art-supplies.html">Art Supplies</a></li>
+        <li><a href="category-stationery.html" class="active">Stationery</a></li>
+      </ul>
+    </aside>
+
+    <!-- Stationery Product Grid -->
+    <section class="product-grid" id="product-grid">
+      <h2>Stationery</h2>
+      <div class="products" id="products-list">
+        <div class="product-card">
+          <a href="product-organizer.html">
+            <img src="desk_org.webp" alt="Desk Organizer">
+            <h3>Desk Organizer - Bamboo</h3>
+          </a>
+          <p>$29.99</p>
+          <button class="add-to-cart" data-product="Desk Organizer - Bamboo">Add to Cart</button>
+        </div>
+        <div class="product-card">
+          <a href="product-desk-mat.html">
+            <img src="mat.jpg" alt="Desk Mat">
+            <h3>Leather Desk Mat</h3>
+          </a>
+          <p>$24.99</p>
+          <button class="add-to-cart" data-product="Leather Desk Mat">Add to Cart</button>
+        </div>
+      </div>
+      <p id="no-results" style="display: none; text-align: center;">No products found.</p>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Stationery Haven. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

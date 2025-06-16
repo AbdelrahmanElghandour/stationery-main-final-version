@@ -1,0 +1,144 @@
+<script type="text/javascript">
+    function toggleMenu() {
+    const navLinks = document.querySelector('.nav-links');
+    navLinks.classList.toggle('active');
+  }
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stationery Haven - Premium Notebook</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Navigation Bar -->
+<nav class="navbar">
+  <div class="logo">
+    <h1>Stationery Haven</h1>
+  </div>
+  <div class="nav-container">
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+    <ul class="nav-links">
+      <li><a href="index.html" class="${window.location.pathname.includes('index.html') ? 'active' : ''}">Home</a></li>
+      <li><a href="products.html" class="${window.location.pathname.includes('products.html') ? 'active' : ''}">Products</a></li>
+      <li><a href="offers.html" class="${window.location.pathname.includes('offers.html') ? 'active' : ''}">Offers</a></li>
+      <li><a href="cart.html" class="${window.location.pathname.includes('cart.html') ? 'active' : ''}">Cart</a></li>
+      <li><a href="signup.html" class="${window.location.pathname.includes('signup.html') ? 'active' : ''}">Sign Up</a></li>
+      <li><a href="login.html" class="${window.location.pathname.includes('login.html') ? 'active' : ''}">Login</a></li>
+    </ul>
+    </div>
+    <div class="search-bar">
+      <input type="text" id="search-input" placeholder="Search products...">
+      <button id="search-button">🔍</button>
+    </div>
+    <div class="cart-icon">
+      <a href="cart.html">🛒 <span id="cart-count">0</span></a>
+    </div>
+  </div>
+</nav>
+
+  <!-- Product Details -->
+  <section class="product-details">
+    <div class="product-container">
+      <div class="product-image">
+        <img src="premium_notebook.webp" alt="Premium Notebook">
+      </div>
+      <div class="product-info">
+        <h1>Premium Notebook - A5 Dot Grid</h1>
+        <p class="product-price">$14.99</p>
+        <p class="product-description">
+          Capture your ideas in style with our A5 Dot Grid Premium Notebook. Featuring high-quality, fountain pen-friendly paper and a durable hardcover, it’s perfect for journaling, planning, or sketching.
+        </p>
+        <div class="product-specs">
+          <h3>Specifications</h3>
+          <ul>
+            <li><strong>Brand:</strong> Stationery Haven</li>
+            <li><strong>Size:</strong> A5 (5.8 x 8.3 inches)</li>
+            <li><strong>Paper Type:</strong> Dot Grid</li>
+            <li><strong>Pages:</strong> 192</li>
+            <li><strong>Cover:</strong> Hardcover, Vegan Leather</li>
+          </ul>
+        </div>
+        <button class="add-to-cart" data-product="Premium Notebook - A5 Dot Grid">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Products -->
+  <section class="related-products">
+    <h2>Related Products</h2>
+    <div class="products">
+      <div class="product-card">
+        <a href = "product-fountain-pen.html">
+        <img src="fountain.webp" alt="Fountain Pen">
+        <h3>Fountain Pen - Classic Black</h3>
+        </a>
+        <p>$24.99</p>
+        <button class="add-to-cart" data-product="Fountain Pen - Classic Black">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <a href = "product-sticker-set.html">
+        <img src="sticker.jfif" alt="Sticker Set">
+        <h3>Decorative Sticker Set</h3>
+        </a>
+        <p>$4.99</p>
+        <button class="add-to-cart" data-product="Decorative Sticker Set">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <a href = "product-pen-case.html">
+        <img src="leather.webp" alt="Pen Case">
+        <h3>Leather Pen Case</h3>
+        </a>
+        <p>$19.99</p>
+        <button class="add-to-cart" data-product="Leather Pen Case">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Stationery Haven. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stationery Haven - Profile</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo">
+      <h1>Stationery Haven</h1>
+    </div>
+    <div class="nav-container">
+      <ul class="nav-links">
+        <!-- Updated dynamically by script.js -->
+      </ul>
+      <div class="search-bar">
+        <input type="text" id="search-input" placeholder="Search products...">
+        <button id="search-button">🔍</button>
+      </div>
+      <div class="cart-icon">
+        <a href="cart.html">🛒 <span id="cart-count">0</span></a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Profile Content -->
+  <section class="profile-page">
+    <h2>User Profile</h2>
+    <div id="profile-error" class="error"></div>
+    <div class="profile-container">
+      <div class="user-info">
+        <h3>User Information</h3>
+        <p><strong>Name:</strong> <span id="user-name"></span></p>
+        <p><strong>Email:</strong> <span id="user-email"></span></p>
+      </div>
+      <div class="order-history">
+        <h3>Order History</h3>
+        <div id="orders-empty">
+          <p>No orders found. <a href="products.html">Shop now!</a></p>
+        </div>
+        <table class="orders-table" style="display: none;">
+          <thead>
+            <tr>
+              <th>Order ID</th>
+              <th>Date</th>
+              <th>Items</th>
+              <th>Total</th>
+              <th>Shipping Address</th>
+            </tr>
+          </thead>
+          <tbody id="order-list"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Stationery Haven. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

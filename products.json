@@ -1,0 +1,211 @@
+[
+  {
+    "id": "leather-desk-mat",
+    "name": "Leather Desk Mat",
+    "price": 24.99,
+    "image": "leather-desk-mat.jpg",
+    "description": "Enhance your workspace with our Leather Desk Mat. Made from premium leather, this mat provides a smooth, non-slip surface for writing and working.",
+    "specs": [
+      "Brand: Stationery Haven",
+      "Material: Genuine Leather",
+      "Dimensions: 24 x 14 inches",
+      "Color: Black",
+      "Feature: Non-slip Base"
+    ],
+    "relatedProducts": [
+      "desk-organizer",
+      "wooden-pen-holder",
+      "premium-notebook-a5-dot-grid"
+    ]
+  },
+  {
+    "id": "fountain-pen-classic-black",
+    "name": "Fountain Pen - Classic Black",
+    "price": 24.99,
+    "image": "fountain-pen.jpg",
+    "description": "Experience smooth writing with our Classic Black Fountain Pen. Crafted with precision, this pen features a stainless steel nib and a sleek, ergonomic design, perfect for both professionals and enthusiasts.",
+    "specs": [
+      "Brand: Stationery Haven",
+      "Color: Black",
+      "Nib Size: Medium",
+      "Material: Resin, Stainless Steel",
+      "Refillable: Yes"
+    ],
+    "relatedProducts": [
+      "ink-refill-blue",
+      "premium-notebook",
+      "leather-pen-case"
+    ]
+  },
+  {
+    "id": "ink-refill-blue",
+    "name": "Ink Refill - Blue",
+    "price": 9.99,
+    "image": "ink-refill.jpg",
+    "description": "Keep your fountain pen flowing with our vibrant Blue Ink Refill. This high-quality ink ensures smooth, consistent writing and is compatible with most fountain pens.",
+    "specs": [
+      "Brand: Stationery Haven",
+      "Color: Blue",
+      "Volume: 50ml",
+      "Type: Fountain Pen Ink",
+      "Bottle: Glass"
+    ],
+    "relatedProducts": [
+      "fountain-pen-classic-black",
+      "leather-pen-case",
+      "premium-notebook-a5-dot-grid"
+    ]
+  },
+  {
+    "id": "art-markers-set-12-colors",
+    "name": "Art Markers Set - 12 Colors",
+    "price": 19.99,
+    "image": "markers.jpg",
+    "description": "Unleash your creativity with our 12-color Art Markers Set. These dual-tip markers (fine and brush) are perfect for illustration, calligraphy, and coloring, offering vibrant, blendable colors.",
+    "specs": [
+      "Brand: Stationery Haven",
+      "Colors: 12",
+      "Tip Type: Dual (Fine and Brush)",
+      "Ink: Water-based, Non-toxic",
+      "Case: Plastic Carrying Case"
+    ],
+    "relatedProducts": [
+      "artist-sketchbook",
+      "watercolor-paint-set",
+      "premium-notebook"
+    ]
+  },
+  {
+    "id": "premium-notebook-a5-dot-grid",
+    "name": "Premium Notebook - A5 Dot Grid",
+    "price": 14.99,
+    "image": "premium-notebook.jpg",
+    "description": "Capture your ideas in style with our A5 Dot Grid Premium Notebook. Featuring high-quality, fountain pen-friendly paper and a durable hardcover, it’s perfect for journaling, planning, or sketching.",
+    "specs": [
+      "Brand: Stationery Haven",
+      "Size: A5 (5.8 x 8.3 inches)",
+      "Paper Type: Dot Grid",
+      "Pages: 192",
+      "Cover: Hardcover, Vegan Leather"
+    ],
+    "relatedProducts": [
+      "fountain-pen-classic-black",
+      "decorative-sticker-set",
+      "leather-pen-case"
+    ]
+  },
+  {
+    "id": "desk-organizer",
+    "name": "Desk Organizer - Bamboo",
+    "price": 29.99,
+    "image": "desk-organizer.jpg",
+    "description": "Keep your workspace tidy with our Bamboo Desk Organizer. With compartments for pens, notes, and accessories, this eco-friendly organizer combines functionality with a sleek, natural aesthetic.",
+    "specs": [
+      "Brand: Stationery Haven",
+      "Material: Bamboo",
+      "Dimensions: 10 x 6 x 4 inches",
+      "Compartments: 5",
+      "Finish: Natural"
+    ],
+    "relatedProducts": [
+      "leather-desk-mat",
+      "wooden-pen-holder",
+      "premium-notebook"
+    ]
+  },
+  {
+    "id": "leather-pen-case",
+    "name": "Leather Pen Case",
+    "price": 19.99,
+    "image": "pen-case.jpg",
+    "description": "Protect your pens in style with our Leather Pen Case. Made from genuine leather, this case holds up to three pens and features a soft interior to prevent scratches.",
+    "specs": [
+      "Brand: Stationery Haven",
+      "Material: Genuine Leather",
+      "Capacity: 3 Pens",
+      "Closure: Zipper",
+      "Color: Brown"
+    ],
+    "relatedProducts": [
+      "fountain-pen-classic-black",
+      "ink-refill-blue",
+      "premium-notebook-a5-dot-grid"
+    ]
+  },
+  {
+    "id": "wooden-pen-holder",
+    "name": "Wooden Pen Holder",
+    "price": 9.99,
+    "image": "pen-holder.jpg",
+    "description": "Organize your desk with our Wooden Pen Holder. Crafted from natural wood, this holder keeps your pens and pencils within easy reach while adding a rustic touch.",
+    "specs": [
+      "Brand: Stationery Haven",
+      "Material: Wood",
+      "Dimensions: 3 x 3 x 4 inches",
+      "Capacity: 10-15 Pens",
+      "Finish: Natural"
+    ],
+    "relatedProducts": [
+      "desk-organizer",
+      "leather-desk-mat",
+      "premium-notebook-a5-dot-grid"
+    ]
+  },
+  {
+    "id": "artist-sketchbook",
+    "name": "Artist Sketchbook",
+    "price": 12.99,
+    "image": "sketchbook.jpg",
+    "description": "Create your masterpieces with our Artist Sketchbook. Featuring thick, acid-free paper, this sketchbook is ideal for drawing, sketching, and mixed media.",
+    "specs": [
+      "Brand: Stationery Haven",
+      "Size: A4 (8.3 x 11.7 inches)",
+      "Paper Weight: 120gsm",
+      "Pages: 80",
+      "Cover: Hardcover"
+    ],
+    "relatedProducts": [
+      "art-markers-set-12-colors",
+      "watercolor-paint-set",
+      "premium-notebook-a5-dot-grid"
+    ]
+  },
+  {
+    "id": "decorative-sticker-set",
+    "name": "Decorative Sticker Set",
+    "price": 4.99,
+    "image": "sticker-set.jpg",
+    "description": "Add a touch of creativity to your notebooks and planners with our Decorative Sticker Set. This set includes 50 vibrant, waterproof stickers in various designs.",
+    "specs": [
+      "Brand: Stationery Haven",
+      "Quantity: 50 Stickers",
+      "Material: Vinyl, Waterproof",
+      "Size: Various (1-3 inches)",
+      "Theme: Mixed Designs"
+    ],
+    "relatedProducts": [
+      "premium-notebook-a5-dot-grid",
+      "art-markers-set-12-colors",
+      "artist-sketchbook"
+    ]
+  },
+  {
+    "id": "watercolor-paint-set",
+    "name": "Watercolor Paint Set",
+    "price": 15.99,
+    "image": "watercolor.jpg",
+    "description": "Explore your artistic side with our Watercolor Paint Set. This set includes 24 vibrant colors, perfect for beginners and professionals alike, with a portable case.",
+    "specs": [
+      "Brand: Stationery Haven",
+      "Colors: 24",
+      "Type: Watercolor",
+      "Case: Metal Tin",
+      "Brush: Included"
+    ],
+    "relatedProducts": [
+      "artist-sketchbook",
+      "art-markers-set-12-colors",
+      "premium-notebook-a5-dot-grid"
+    ]
+  }
+]
